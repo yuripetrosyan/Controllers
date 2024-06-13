@@ -15,6 +15,8 @@
 		92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7871D2C1B575400166CB3 /* AudioViewModel.swift */; };
 		92D787212C1B58CC00166CB3 /* CHIHIRO.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */; };
 		92D787232C1B6D9C00166CB3 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */; };
+		92D787252C1B8DC200166CB3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D787242C1B8DC200166CB3 /* TestView.swift */; };
+		92D787272C1B8FA600166CB3 /* CircularKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D787262C1B8FA600166CB3 /* CircularKnob.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,9 @@
 		92D7871D2C1B575400166CB3 /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
 		92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CHIHIRO.mp3; sourceTree = "<group>"; };
 		92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
+		92D787242C1B8DC200166CB3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		92D787262C1B8FA600166CB3 /* CircularKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularKnob.swift; sourceTree = "<group>"; };
+		92D787282C1BA2E200166CB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 		92D7870C2C1B512F00166CB3 /* MiniDJ */ = {
 			isa = PBXGroup;
 			children = (
+				92D787282C1BA2E200166CB3 /* Info.plist */,
 				92D7871F2C1B57B200166CB3 /* songs */,
 				92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */,
 				92D7870F2C1B512F00166CB3 /* ContentView.swift */,
@@ -67,6 +73,8 @@
 				92D787112C1B513200166CB3 /* Assets.xcassets */,
 				92D787132C1B513200166CB3 /* Preview Content */,
 				92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */,
+				92D787242C1B8DC200166CB3 /* TestView.swift */,
+				92D787262C1B8FA600166CB3 /* CircularKnob.swift */,
 			);
 			path = MiniDJ;
 			sourceTree = "<group>";
@@ -158,11 +166,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D787252C1B8DC200166CB3 /* TestView.swift in Sources */,
 				92D787102C1B512F00166CB3 /* ContentView.swift in Sources */,
 				92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */,
 				92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */,
 				92D787232C1B6D9C00166CB3 /* DocumentPicker.swift in Sources */,
 				92D7871C2C1B570600166CB3 /* AudioModel.swift in Sources */,
+				92D787272C1B8FA600166CB3 /* CircularKnob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +309,8 @@
 				DEVELOPMENT_TEAM = ZT829445M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiniDJ/Info.plist;
+				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Used to select a song";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -328,6 +340,8 @@
 				DEVELOPMENT_TEAM = ZT829445M9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MiniDJ/Info.plist;
+				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Used to select a song";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

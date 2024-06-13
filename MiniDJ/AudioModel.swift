@@ -3,15 +3,16 @@
 //  MiniDJ
 //
 //  Created by Yuri Petrosyan on 13/06/2024.
-
+//
+import Foundation
 import AVFoundation
 
 class AudioModel {
-    private var audioPlayer: AVAudioPlayerNode?
-    private var audioFile: AVAudioFile?
-    private var audioEngine: AVAudioEngine?
-    private var timePitch: AVAudioUnitTimePitch?
-    private var reverbEffect: AVAudioUnitReverb?
+    var audioPlayer: AVAudioPlayerNode?
+    var audioFile: AVAudioFile?
+    var audioEngine: AVAudioEngine?
+    var timePitch: AVAudioUnitTimePitch?
+    var reverbEffect: AVAudioUnitReverb?
 
     init() {
         setupAudio()
@@ -42,24 +43,16 @@ class AudioModel {
             audioPlayer.scheduleFile(audioFile, at: nil, completionHandler: nil)
             try audioEngine.start()
             audioPlayer.play()
+
         } catch {
             print("Error loading audio file: \(error.localizedDescription)")
         }
     }
 
-    func updateSpeed(_ value: Float) {
-        timePitch?.rate = value
-    }
-
-    func updateReverb(_ value: Float) {
-        reverbEffect?.wetDryMix = value
-    }
-
-    func updatePitch(_ value: Float) {
-        timePitch?.pitch = value
-    }
-
-    func updateVolume(_ value: Float) {
-        audioEngine?.mainMixerNode.outputVolume = value
+    func updateAudioSettings(speed: Float, pitch: Float, reverb: Float, volume: Float) {
+        timePitch?.rate = speed
+        timePitch?.pitch = pitch * 100 // 100 cents is one semitone
+        reverbEffect?.wetDryMix = reverb
+        audioEngine?.mainMixerNode.outputVolume = volume
     }
 }
