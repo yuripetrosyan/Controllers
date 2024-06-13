@@ -11,6 +11,10 @@
 		92D787102C1B512F00166CB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7870F2C1B512F00166CB3 /* ContentView.swift */; };
 		92D787122C1B513200166CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D787112C1B513200166CB3 /* Assets.xcassets */; };
 		92D787152C1B513200166CB3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D787142C1B513200166CB3 /* Preview Assets.xcassets */; };
+		92D7871C2C1B570600166CB3 /* AudioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7871B2C1B570600166CB3 /* AudioModel.swift */; };
+		92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7871D2C1B575400166CB3 /* AudioViewModel.swift */; };
+		92D787212C1B58CC00166CB3 /* CHIHIRO.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */; };
+		92D787232C1B6D9C00166CB3 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		92D7870F2C1B512F00166CB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92D787112C1B513200166CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92D787142C1B513200166CB3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		92D7871B2C1B570600166CB3 /* AudioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioModel.swift; sourceTree = "<group>"; };
+		92D7871D2C1B575400166CB3 /* AudioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewModel.swift; sourceTree = "<group>"; };
+		92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CHIHIRO.mp3; sourceTree = "<group>"; };
+		92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,10 +59,14 @@
 		92D7870C2C1B512F00166CB3 /* MiniDJ */ = {
 			isa = PBXGroup;
 			children = (
+				92D7871F2C1B57B200166CB3 /* songs */,
 				92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */,
 				92D7870F2C1B512F00166CB3 /* ContentView.swift */,
+				92D7871B2C1B570600166CB3 /* AudioModel.swift */,
+				92D7871D2C1B575400166CB3 /* AudioViewModel.swift */,
 				92D787112C1B513200166CB3 /* Assets.xcassets */,
 				92D787132C1B513200166CB3 /* Preview Content */,
+				92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */,
 			);
 			path = MiniDJ;
 			sourceTree = "<group>";
@@ -65,6 +77,14 @@
 				92D787142C1B513200166CB3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		92D7871F2C1B57B200166CB3 /* songs */ = {
+			isa = PBXGroup;
+			children = (
+				92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */,
+			);
+			path = songs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92D787212C1B58CC00166CB3 /* CHIHIRO.mp3 in Resources */,
 				92D787152C1B513200166CB3 /* Preview Assets.xcassets in Resources */,
 				92D787122C1B513200166CB3 /* Assets.xcassets in Resources */,
 			);
@@ -138,7 +159,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D787102C1B512F00166CB3 /* ContentView.swift in Sources */,
+				92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */,
 				92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */,
+				92D787232C1B6D9C00166CB3 /* DocumentPicker.swift in Sources */,
+				92D7871C2C1B570600166CB3 /* AudioModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
