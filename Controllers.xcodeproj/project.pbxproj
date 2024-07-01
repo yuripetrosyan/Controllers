@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9255E0972C20DFE00094756C /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255E0962C20DFE00094756C /* SwiftUIView.swift */; };
 		92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */; };
 		92D787102C1B512F00166CB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7870F2C1B512F00166CB3 /* ContentView.swift */; };
 		92D787122C1B513200166CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D787112C1B513200166CB3 /* Assets.xcassets */; };
@@ -20,7 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		92D7870A2C1B512F00166CB3 /* MiniDJ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiniDJ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9255E0962C20DFE00094756C /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
+		92D7870A2C1B512F00166CB3 /* Controllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Controllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDJApp.swift; sourceTree = "<group>"; };
 		92D7870F2C1B512F00166CB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		92D787112C1B513200166CB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		92D7870B2C1B512F00166CB3 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				92D7870A2C1B512F00166CB3 /* MiniDJ.app */,
+				92D7870A2C1B512F00166CB3 /* Controllers.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,6 +77,7 @@
 				92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */,
 				92D787242C1B8DC200166CB3 /* TestView.swift */,
 				92D787262C1B8FA600166CB3 /* CircularKnob.swift */,
+				9255E0962C20DFE00094756C /* SwiftUIView.swift */,
 			);
 			path = MiniDJ;
 			sourceTree = "<group>";
@@ -98,9 +101,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		92D787092C1B512F00166CB3 /* MiniDJ */ = {
+		92D787092C1B512F00166CB3 /* Controllers */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 92D787182C1B513200166CB3 /* Build configuration list for PBXNativeTarget "MiniDJ" */;
+			buildConfigurationList = 92D787182C1B513200166CB3 /* Build configuration list for PBXNativeTarget "Controllers" */;
 			buildPhases = (
 				92D787062C1B512F00166CB3 /* Sources */,
 				92D787072C1B512F00166CB3 /* Frameworks */,
@@ -110,9 +113,9 @@
 			);
 			dependencies = (
 			);
-			name = MiniDJ;
+			name = Controllers;
 			productName = MiniDJ;
-			productReference = 92D7870A2C1B512F00166CB3 /* MiniDJ.app */;
+			productReference = 92D7870A2C1B512F00166CB3 /* Controllers.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -143,7 +146,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				92D787092C1B512F00166CB3 /* MiniDJ */,
+				92D787092C1B512F00166CB3 /* Controllers */,
 			);
 		};
 /* End PBXProject section */
@@ -168,6 +171,7 @@
 			files = (
 				92D787252C1B8DC200166CB3 /* TestView.swift in Sources */,
 				92D787102C1B512F00166CB3 /* ContentView.swift in Sources */,
+				9255E0972C20DFE00094756C /* SwiftUIView.swift in Sources */,
 				92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */,
 				92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */,
 				92D787232C1B6D9C00166CB3 /* DocumentPicker.swift in Sources */,
@@ -310,6 +314,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniDJ/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Controllers ";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Allow access to your music library to play audio files.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Used to select a song";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -341,6 +348,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MiniDJ/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Controllers ";
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Allow access to your music library to play audio files.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Used to select a song";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -372,7 +382,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		92D787182C1B513200166CB3 /* Build configuration list for PBXNativeTarget "MiniDJ" */ = {
+		92D787182C1B513200166CB3 /* Build configuration list for PBXNativeTarget "Controllers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				92D787192C1B513200166CB3 /* Debug */,

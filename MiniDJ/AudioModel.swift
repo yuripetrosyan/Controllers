@@ -15,8 +15,18 @@ class AudioModel {
     var reverbEffect: AVAudioUnitReverb?
 
     init() {
+        setupAudioSession() // Call setupAudioSession during initialization
         setupAudio()
     }
+    
+    func setupAudioSession() {
+            do {
+                try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch {
+                print("Failed to set audio session category and mode: \(error.localizedDescription)")
+            }
+        }
 
     func setupAudio() {
         audioEngine = AVAudioEngine()

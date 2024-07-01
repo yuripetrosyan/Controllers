@@ -2,9 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>kTCCServiceMediaLibrary</key>
-	<string>This app needs to access your music library to load and play audio files that you select.</string>
-	<key></key>
-	<string></string>
+	
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We need access to your microphone for audio playback.</string>
+    <key>NSDocumentsFolderUsageDescription</key>
+    <string>We need access to your documents folder to load audio files.</string>
+    <key>UIFileSharingEnabled</key>
+    <true/>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true/>
+
+    
+    
 </dict>
 </plist>
+
+

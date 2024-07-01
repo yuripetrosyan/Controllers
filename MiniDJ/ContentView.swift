@@ -15,7 +15,11 @@ struct ContentView: View {
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
-                Color("PrimaryColor").ignoresSafeArea()
+               Image("backgroundImage")
+                    .resizable()
+                    .ignoresSafeArea()
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+             
                 ScrollView{
                     
                     VStack {
@@ -38,43 +42,46 @@ struct ContentView: View {
                         
                         HStack (spacing: 20){
                             FakeSpeaker()
+                                
                                 .frame(width: geometry.size.width / 6)
-                            ZStack{
-                                RoundedRectangle(cornerRadius: 12)
-                                    .foregroundStyle(.black)
-                                    .frame(width: geometry.size.width * 4.3/6, height: geometry.size.width / 1.9)
-                               
-                                VStack{
-                                    
-                                    Spacer()
-                                    
-                                    HStack (spacing: 25){ // Basic player controls
-                                        Button(action: { //viewModel.rewind()
-                                        }
-                                        )
-                                        
-                                        {
-                                            Image(systemName: "backward.fill")
-                                                .font(.title)
-                                        }
-                                        
-                                        Button(action: { //viewModel.togglePlayPause()
-                                        }) {
-                                            Image(systemName: //viewModel.isPlaying ? "pause.fill" :
-                                                  "play.fill")
-                                            .font(.title)
-                                        }
-                                        
-                                        Button(action: { //viewModel.forward()
-                                        }) {
-                                            Image(systemName: "forward.fill")
-                                                .font(.title)
-                                        }
-                                    }
-                                    .tint(.white)
-                                    .padding()
-                                }
-                            }
+                                .padding(.leading)
+                            Spacer()
+//                            ZStack{
+//                                RoundedRectangle(cornerRadius: 12)
+//                                    .foregroundStyle(.black)
+//                                    .frame(width: geometry.size.width * 4.3/6, height: geometry.size.width / 1.9)
+//                               
+//                                VStack{
+//                                    
+//                                    Spacer()
+//                                    
+//                                    HStack (spacing: 25){ // Basic player controls
+//                                        Button(action: { //viewModel.rewind()
+//                                        }
+//                                        )
+//                                        
+//                                        {
+//                                            Image(systemName: "backward.fill")
+//                                                .font(.title)
+//                                        }
+//                                        
+//                                        Button(action: { //viewModel.togglePlayPause()
+//                                        }) {
+//                                            Image(systemName: //viewModel.isPlaying ? "pause.fill" :
+//                                                  "play.fill")
+//                                            .font(.title)
+//                                        }
+//                                        
+//                                        Button(action: { //viewModel.forward()
+//                                        }) {
+//                                            Image(systemName: "forward.fill")
+//                                                .font(.title)
+//                                        }
+//                                    }
+//                                    .tint(.white)
+//                                    .padding()
+//                                }
+//                            }
                             
                         }
                         
