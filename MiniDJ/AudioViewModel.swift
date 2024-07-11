@@ -59,6 +59,7 @@ class AudioViewModel: ObservableObject {
             DispatchQueue.main.async {
                 self?.coverArt = coverArt
                 self?.title = title
+                
             }
         }
     }
