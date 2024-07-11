@@ -5,118 +5,143 @@
 //  Created by Yuri Petrosyan on 13/06/2024.
 //
 import SwiftUI
+import Pow
 
 struct ContentView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+    @State var t: Float = 0.0
+    @State var timer: Timer?
     @StateObject private var viewModel = AudioViewModel()
     @State private var showDocumentPicker = false
     @State private var selectedURL: URL?
+    @State private var backgroundColor: Color = .pink
+    @State var isAdded = true
+
     
     var body: some View {
         GeometryReader{ geometry in
             ZStack {
-               Image("backgroundImage")
-                    .resizable()
-                    .ignoresSafeArea()
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-             
-                ScrollView{
-                    
-                    VStack {
-                        Button("Upload a song") {
-                            showDocumentPicker = true
-                        }
-                        .tint(.black)
-                        .font(.headline)
-                        .fontDesign(.rounded)
-                        .fontWeight(.semibold)
-                        .padding()
-                        .sheet(isPresented: $showDocumentPicker) {
-                            DocumentPicker(url: $selectedURL)
-                                .onDisappear {
-                                    if let url = selectedURL {
-                                        viewModel.loadMP3(from: url)
+                // ScrollView{
+                VStack{
+                    ZStack{
+                        
+                        Rectangle()
+                            .fill(
+                                LinearGradient(colors: [backgroundColor,
+                                                        colorScheme == .dark ? .black : .white], startPoint: .top, endPoint: .bottom)
+                                
+                            )
+                        
+                            .ignoresSafeArea()
+                        
+                        VStack {
+                            ColorPicker(selection: $backgroundColor, label: {
+                                
+                            }).padding(.top, -20)
+                                .padding(.trailing)
+                            Button("Upload a song") {
+                                showDocumentPicker = true
+                            }
+                            .padding(.top, -40)
+                            .foregroundStyle(.primary)
+                            .font(.headline)
+                            .fontDesign(.rounded)
+                            .fontWeight(.semibold)
+                            .padding()
+                            .sheet(isPresented: $showDocumentPicker) {
+                                DocumentPicker(url: $selectedURL)
+                                    .ignoresSafeArea(edges: .bottom)
+                                    .onDisappear {
+                                        if let url = selectedURL {
+                                            viewModel.loadMP3(from: url)
+                                        }
                                     }
-                                }
-                        }
-                        
-                        HStack (spacing: 20){
-                            FakeSpeaker()
-                                
-                                .frame(width: geometry.size.width / 6)
-                                .padding(.leading)
-                            Spacer()
-//                            ZStack{
-//                                RoundedRectangle(cornerRadius: 12)
-//                                    .foregroundStyle(.black)
-//                                    .frame(width: geometry.size.width * 4.3/6, height: geometry.size.width / 1.9)
-//                               
-//                                VStack{
-//                                    
-//                                    Spacer()
-//                                    
-//                                    HStack (spacing: 25){ // Basic player controls
-//                                        Button(action: { //viewModel.rewind()
-//                                        }
-//                                        )
-//                                        
-//                                        {
-//                                            Image(systemName: "backward.fill")
-//                                                .font(.title)
-//                                        }
-//                                        
-//                                        Button(action: { //viewModel.togglePlayPause()
-//                                        }) {
-//                                            Image(systemName: //viewModel.isPlaying ? "pause.fill" :
-//                                                  "play.fill")
-//                                            .font(.title)
-//                                        }
-//                                        
-//                                        Button(action: { //viewModel.forward()
-//                                        }) {
-//                                            Image(systemName: "forward.fill")
-//                                                .font(.title)
-//                                        }
-//                                    }
-//                                    .tint(.white)
-//                                    .padding()
-//                                }
-//                            }
-                            
-                        }
-                        
-                        
-                        HStack(alignment: .bottom) {
-                            HStack(alignment: .bottom, spacing: 0) {
-                                Text("00:")
-                                    .font(.title3)
-                                    .opacity(0.7)
-                                    .padding(.bottom, 3)
-                                
-                                Text("00:00")
-                                    .font(.title)
-                                    .fontWeight(.semibold)
                             }
                             
-                            Spacer()
-                            Text("03:33:09")
-                                .font(.title3)
-                                .opacity(0.7)
+                            HStack (spacing: 20){
+                                
+                                if viewModel.coverArt == nil {
+                                    FakeSpeaker()
+                                    
+                                        .frame(width: geometry.size.width / 6)
+                                        .padding(.leading)
+                                    
+                                }
+                                
+                                
+                                
+                                //Spacer()
+                                
+                                ZStack{
+                                    if isAdded {
+                                        
+                                        if let coverArt = viewModel.coverArt {
+                                            Image(uiImage: coverArt)
+                                                .resizable()
+                                                .aspectRatio(contentMode: .fit)
+                                                .frame(height: 200)
+                                                .cornerRadius(10)
+                                                .transition(.movingParts.anvil)
+                                            //.transition(.movingParts.flip)
+                                        }
+                                    }
+                                }
+                            
+                                  
+                            }
+                            if let title = viewModel.title {
+                                Text(title)
+                                    .font(.title2)
+                                    .fontWeight(.semibold)
+                                   // .padding()
+                            }
+                            
+                            HStack(alignment: .bottom) {
+                                HStack(alignment: .bottom, spacing: 0) {
+                                    Text("00:")
+                                        .font(.title3)
+                                        .opacity(0.7)
+                                        .padding(.bottom, 3)
+                                    
+                                    Text("00:00")
+                                        .font(.title)
+                                        .fontWeight(.semibold)
+                                }
+                                
+                                Spacer()
+                                Text("03:33:09")
+                                    .font(.title3)
+                                    .opacity(0.7)
+                            }
+                            .fontDesign(.rounded)
+                            .padding()
+                            
+                            
                         }
-                        .fontDesign(.rounded)
-                        .padding()
-                        
-                        HStack {
-                            CircularKnob(value: $viewModel.speed, range: 0.5...2.0, step: 0.1, label: "Speed")
-                            CircularKnob(value: $viewModel.reverb, range: 0.0...1.0, step: 0.1, label: "Reverb")
-                        }
-                        
-                        HStack {
-                            CircularKnob(value: $viewModel.pitch, range: -10.0...10.0, step: 0.2, label: "Pitch")
-                            CircularKnob(value: $viewModel.volume, range: 0.0...1.0, step: 0.1, label: "Volume")
-                        }
-                        .padding(.bottom)
                     }
+                    ZStack{
+                        
+                        //Logo()
+                        
+                        RadialGradient(gradient: Gradient(colors: [backgroundColor, colorScheme == .dark ? .black : .white]), center: .bottom , startRadius: 25, endRadius: 250)
+                            .ignoresSafeArea()
+                        
+                        
+                        VStack{
+                            HStack {
+                                CircularKnob(value: $viewModel.speed, range: 0.5...2.0, step: 0.1, label: "Speed")
+                                CircularKnob(value: $viewModel.reverb, range: 0.0...1.0, step: 0.1, label: "Reverb")
+                            }
+                            HStack {
+                                CircularKnob(value: $viewModel.pitch, range: -10.0...10.0, step: 0.2, label: "Pitch")
+                                CircularKnob(value: $viewModel.volume, range: 0.0...1.0, step: 0.1, label: "Volume")
+                            }
+                        }
+                    }
+                    
+                    
+                    
                     
                 }
             }
@@ -232,6 +257,8 @@ struct FakeSpeaker: View {
         .frame(width: 200)
     }
 }
+
+
 
 
 

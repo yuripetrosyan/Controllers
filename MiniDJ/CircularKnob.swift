@@ -23,8 +23,11 @@ struct CircularKnob: View {
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 12)
-                .foregroundStyle(.ultraThinMaterial).colorScheme(.dark)
-                .frame(width: 185, height: 185)
+                .foregroundStyle(.ultraThinMaterial)//.colorScheme(.dark)
+             
+            .frame(width: 180, height: 180)
+               // .frame(minWidth: 185, minHeight: 185)
+              //  .frame(maxWidth: 450, maxHeight: 450)
             
             ZStack {
                 
@@ -32,12 +35,15 @@ struct CircularKnob: View {
                     .foregroundStyle(.black)
                     .frame(width: 120, height: 120)
 
+                 //   .frame(minWidth: 120, minHeight: 120)
+                 //   .frame(maxWidth: 320, maxHeight: 320)
+
                 
                 Circle() // Background track
                 
                     .stroke(trackColor,
                             style: StrokeStyle(lineWidth: 3, lineCap: .butt, dash: [3, 23.18]))
-                    .frame(width: 125, height: 125)
+                      .frame(width: 125, height: 125)
                     .scaleEffect(1.2)
                 
 
@@ -72,7 +78,7 @@ struct CircularKnob: View {
     }
 
     private func change(location: CGPoint) {
-        let vector = CGVector(dx: location.x - 125, dy: location.y - 125) // Center is at (125, 125)
+        let vector = CGVector(dx: location.x - 25, dy: location.y - 25) // Center is at (125, 125)
         var radians = atan2(vector.dy, vector.dx) + .pi / 2.0
         
         // Ensure angle is within 0 to 2π range
@@ -101,9 +107,10 @@ struct CircularKnobPreview: View {
     var body: some View {
         LazyHGrid(rows: [GridItem(.flexible()), GridItem(.flexible())]) {
             CircularKnob(value: $speedValue, range: 0.5...2.0, step: 0.1, label: "Speed")
-            CircularKnob(value: $reverbValue, range: 0.0...1.0, step: 0.1, label: "Reverb")
             CircularKnob(value: $pitchValue, range: -10.0...10.0, step: 0.1, label: "Pitch")
-            CircularKnob(value: $volumeValue, range: 0.0...1.5, step: 0.1, label: "Volume")
+            CircularKnob(value: $reverbValue, range: 0.0...1.0, step: 0.1, label: "Reverb")
+
+            CircularKnob(value: $volumeValue, range: 0.0...1, step: 0.1, label: "Volume")
         }
         .padding()
     }

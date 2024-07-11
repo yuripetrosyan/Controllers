@@ -1,0 +1,15 @@
+{
+  "originHash" : "a70c3802333fa8bae85ad5fea9c004b7bdc37953c8c1d5b1883e545c3fad4296",
+  "pins" : [
+    {
+      "identity" : "pow?tab=readme-ov-file",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/EmergeTools/Pow?tab=readme-ov-file",
+      "state" : {
+        "revision" : "f0d0f3e72d42beaf2b01f1cb798e1b55902814eb",
+        "version" : "1.0.4"
+      }
+    }
+  ],
+  "version" : 3
+}
