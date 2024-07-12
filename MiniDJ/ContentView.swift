@@ -169,7 +169,7 @@ struct ContentView: View {
                 
                 .ignoresSafeArea()
             }.onAppear{
-                viewModel.loadMockMP3()
+                //viewModel.loadMockMP3()
             }
         }
     }
