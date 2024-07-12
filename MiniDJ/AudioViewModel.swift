@@ -54,6 +54,8 @@ class AudioViewModel: ObservableObject {
         volume = 1.0
     }
     
+  
+    
     func loadMP3(from url: URL) {
         audioModel.loadMP3(url: url) { [weak self] coverArt, title in
             DispatchQueue.main.async {
@@ -63,6 +65,13 @@ class AudioViewModel: ObservableObject {
             }
         }
     }
+    
+    func loadMockMP3() {
+         if let url = Bundle.main.url(forResource: "CHIHIRO", withExtension: "mp3") {
+             loadMP3(from: url)
+         }
+     }
+     
     
     
     func updateSpeed(_ value: Float) {

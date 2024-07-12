@@ -17,6 +17,7 @@ struct ContentView: View {
     @State private var selectedURL: URL?
     @State private var backgroundColor: Color = .blue
     @State var isAdded = true
+    @State private var isCoverTapped = false
 
     
     var body: some View {
@@ -50,19 +51,14 @@ struct ContentView: View {
                                         showDocumentPicker = true
                                     }
                             label: {
-                                // Circle()
-                                  //  .frame(width: 35, height: 35)
-                                   // .foregroundStyle(.white.opacity(0.5))
-                                   // .padding()
-                                  //  .overlay{
+                                
                                     Image(systemName: "waveform.path.badge.plus")
                                     .font(.title2)
                                     .padding()
                                         .symbolRenderingMode(.palette)
                                         .foregroundStyle(.orange, .white)
                                         .fontWeight(.semibold)
-                                       
-                               // }
+                               
                             }
                                     .sheet(isPresented: $showDocumentPicker) {
                                         DocumentPicker(url: $selectedURL)
@@ -70,6 +66,8 @@ struct ContentView: View {
                                             .onDisappear {
                                                 if let url = selectedURL {
                                                     viewModel.loadMP3(from: url)
+                                                    
+                                                   
                                                 }
                                             
                                     }
@@ -79,51 +77,51 @@ struct ContentView: View {
                                     
                                 }).padding(.trailing)
                                 
-                            }.padding(.top, 60)
+                            }.padding(.top, 30)
                                 
                             
                             HStack (spacing: 20){
                                 
-                                if viewModel.coverArt == nil {
-                                    
-                                    HStack{
-                                        FakeSpeaker()
-                                        
-                                            .frame(width: geometry.size.width / 6)
-                                            .padding(.leading)
-                                            .padding()
-                                        
-                                        Spacer()
-                                    }
-                                }
-                                
-                                
-                                
+                                //                                if viewModel.coverArt == nil {
+                                //
+                                //                                    HStack{
+                                //                                        FakeSpeaker()
+                                //                                        .frame(width: geometry.size.width / 6)
+                                //                                            .padding(.leading)
+                                //                                            .padding()
+                                //
+                                //                                        Spacer()
+                                //                                    }
+                                //                                }
                                 //Spacer()
-                                
-                                ZStack{
-                                    if isAdded {
+                                VStack{
+                                    //Cover Art
+                                    if let coverArt = viewModel.coverArt {
+                                        Image(uiImage: coverArt)
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(height: isCoverTapped ? geometry.size.width : 200)
+                                            
                                         
-                                        if let coverArt = viewModel.coverArt {
-                                            Image(uiImage: coverArt)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fit)
-                                                .frame(height: 200)
-                                                .cornerRadius(10)
-                                                .transition(.movingParts.anvil)
-                                        }
+                                            .cornerRadius(10)
+                                            .transition(.movingParts.boing)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    //isAdded.toggle()
+                                                    isCoverTapped.toggle()
+                                                }
+                                            }
+                                    }
+                                    
+                                    //Song Title
+                                    if let title = viewModel.title {
+                                        Text(title)
+                                            .font(.title2)
+                                            .fontWeight(.semibold)
+                                            .padding(isCoverTapped ? -50 : 20)
                                     }
                                 }
-                                
-                                
                             }
-                            if let title = viewModel.title {
-                                Text(title)
-                                    .font(.title2)
-                                    .fontWeight(.semibold)
-                                // .padding()
-                            }
-                            
                             HStack(alignment: .bottom) {
                                 HStack(alignment: .bottom, spacing: 0) {
                                     Text("00:")
@@ -143,6 +141,7 @@ struct ContentView: View {
                             }
                             .fontDesign(.rounded)
                             .padding()
+                            .padding(.top, isCoverTapped ? -20 : 0)
                             
                             
                             
@@ -160,13 +159,17 @@ struct ContentView: View {
                                     CircularKnob(value: $viewModel.volume, range: 0.0...1.0, step: 0.1, label: "Volume")
                                 }
                             }
-                        }
+                        }.offset(y: isCoverTapped ? -105 : 0)
                     
                     
                // }
                     
                     
-                    }.ignoresSafeArea()
+                    }
+                
+                .ignoresSafeArea()
+            }.onAppear{
+                viewModel.loadMockMP3()
             }
         }
     }
@@ -207,3 +210,4 @@ struct ContentView_Previews: PreviewProvider {
         FakeSpeaker()
     }
 }
+

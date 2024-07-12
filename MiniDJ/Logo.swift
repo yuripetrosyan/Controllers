@@ -6,17 +6,33 @@
 //
 
 import SwiftUI
+import Pow
 
 struct Logo: View {
+    @State var isAdded = false
+    @State var count = 300
+
     var body: some View {
         
-        Circle()
-            .frame(width: 300, height: 300)
-            .shadow(color: .red, radius: 60)
-            .foregroundStyle(RadialGradient(gradient: Gradient(colors: [Color.orange, Color.red]), center: .center, startRadius: 30, endRadius: 80))
-           
-               
+        ZStack{
+            Color.clear
             
+            if isAdded {
+                Circle()
+                    .frame(width: 300, height: 300)
+                    .shadow(color: .red, radius: 60)
+                    .foregroundStyle(RadialGradient(gradient: Gradient(colors: [Color.orange, Color.red]), center: .center, startRadius: 30, endRadius: 80))
+                    .conditionalEffect(.pushDown, condition: isAdded)
+                    .transition(
+                        .movingParts.boing
+                    )
+            }
+        }   .contentShape(Circle())
+            .onTapGesture {
+              withAnimation {
+                isAdded.toggle()
+              }
+            }
         
     }
 }
