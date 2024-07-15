@@ -99,16 +99,18 @@ struct ContentView: View {
                                         Image(uiImage: coverArt)
                                             .resizable()
                                             .aspectRatio(contentMode: .fit)
+                                      
                                             .frame(height: isCoverTapped ? geometry.size.width : 200)
                                             .transition(.movingParts.boing)
                                             .cornerRadius(isCoverTapped ? 0 : 10)
+                                            
                                         
                                         Rectangle()
                                             .foregroundStyle(.primary)
                                             .colorInvert()
-                                            .opacity(isCoverTapped ? 0.8 : 0)
+                                            .opacity(isCoverTapped ? 1 : 0)
                                             .offset(y: geometry.size.width * 0.5)
-                                            .blur(radius: 10)
+                                            .blur(radius: 5)
                                             .frame(width: geometry.size.width, height: 20)
                                     }
                                     
@@ -126,7 +128,7 @@ struct ContentView: View {
                                         .fontWeight(.semibold)
                                         .padding(isCoverTapped ? -50 : 20)
                                 }
-                            }.padding(.top, -25)
+                            }//.padding(.top, -25)
                         }
                         
                         HStack {
@@ -177,12 +179,6 @@ struct ContentView: View {
                         .padding()
                         .padding(.top, isCoverTapped ? -20 : 0)
                         
-                        
-                        
-                        
-                        
-                        
-                        
                         VStack(spacing: 10){
                             HStack {
                                 CircularKnob(value: $viewModel.speed, range: 0.5...2.0, step: 0.1, label: "Speed")
@@ -203,7 +199,7 @@ struct ContentView: View {
                 
                 .ignoresSafeArea()
             }.onAppear{
-               // viewModel.loadMockMP3()
+                //viewModel.loadMockMP3()
             }
         }
     }
