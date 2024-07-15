@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9232039E2C4565A7004D7DB1 /* SilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232039D2C4565A7004D7DB1 /* SilderView.swift */; };
 		925581122C3F42A800AA451D /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 925581112C3F42A800AA451D /* Pow */; };
 		9255E0972C20DFE00094756C /* SwiftUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9255E0962C20DFE00094756C /* SwiftUIView.swift */; };
 		927DCA542C3764D3005E0FF6 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DCA532C3764D3005E0FF6 /* Logo.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9232039D2C4565A7004D7DB1 /* SilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilderView.swift; sourceTree = "<group>"; };
 		9255E0962C20DFE00094756C /* SwiftUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView.swift; sourceTree = "<group>"; };
 		927DCA532C3764D3005E0FF6 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
 		92D7870A2C1B512F00166CB3 /* Controllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Controllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +76,6 @@
 				92D7871F2C1B57B200166CB3 /* songs */,
 				92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */,
 				92D7870F2C1B512F00166CB3 /* ContentView.swift */,
-				927DCA532C3764D3005E0FF6 /* Logo.swift */,
 				92D7871B2C1B570600166CB3 /* AudioModel.swift */,
 				92D7871D2C1B575400166CB3 /* AudioViewModel.swift */,
 				92D787112C1B513200166CB3 /* Assets.xcassets */,
@@ -82,7 +83,9 @@
 				92D787222C1B6D9C00166CB3 /* DocumentPicker.swift */,
 				92D787242C1B8DC200166CB3 /* TestView.swift */,
 				92D787262C1B8FA600166CB3 /* CircularKnob.swift */,
+				927DCA532C3764D3005E0FF6 /* Logo.swift */,
 				9255E0962C20DFE00094756C /* SwiftUIView.swift */,
+				9232039D2C4565A7004D7DB1 /* SilderView.swift */,
 			);
 			path = MiniDJ;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				92D787252C1B8DC200166CB3 /* TestView.swift in Sources */,
 				92D787102C1B512F00166CB3 /* ContentView.swift in Sources */,
 				927DCA542C3764D3005E0FF6 /* Logo.swift in Sources */,
+				9232039E2C4565A7004D7DB1 /* SilderView.swift in Sources */,
 				9255E0972C20DFE00094756C /* SwiftUIView.swift in Sources */,
 				92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */,
 				92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */,

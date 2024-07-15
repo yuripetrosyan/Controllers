@@ -8,6 +8,9 @@ class AudioViewModel: ObservableObject {
     @Published var volume: Float = 1.0
     @Published var coverArt: UIImage?
     @Published var title: String?
+    @Published var currentTime: TimeInterval = 0
+    @Published var duration: TimeInterval = 0
+    @Published var isPlaying: Bool = false
     
     private let audioModel = AudioModel()
     private var cancellables = Set<AnyCancellable>()
@@ -36,6 +39,21 @@ class AudioViewModel: ObservableObject {
                 self?.audioModel.updateAudioSettings(speed: self?.speed ?? 1, pitch: self?.pitch ?? 0, reverb: self?.reverb ?? 0, volume: newValue)
             }
             .store(in: &cancellables)
+        
+        audioModel.$currentTime
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.currentTime, on: self)
+            .store(in: &cancellables)
+        
+        audioModel.$duration
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.duration, on: self)
+            .store(in: &cancellables)
+        
+        audioModel.$isPlaying
+            .receive(on: DispatchQueue.main)
+            .assign(to: \.isPlaying, on: self)
+            .store(in: &cancellables)
     }
     
     func resetSpeed() {
@@ -54,25 +72,21 @@ class AudioViewModel: ObservableObject {
         volume = 1.0
     }
     
-  
-    
     func loadMP3(from url: URL) {
         audioModel.loadMP3(url: url) { [weak self] coverArt, title in
             DispatchQueue.main.async {
                 self?.coverArt = coverArt
                 self?.title = title
-                
+                self?.duration = self?.audioModel.duration ?? 0
             }
         }
     }
     
     func loadMockMP3() {
-         if let url = Bundle.main.url(forResource: "CHIHIRO", withExtension: "mp3") {
-             loadMP3(from: url)
-         }
-     }
-     
-    
+        if let url = Bundle.main.url(forResource: "CHIHIRO", withExtension: "mp3") {
+            loadMP3(from: url)
+        }
+    }
     
     func updateSpeed(_ value: Float) {
         speed = value
@@ -88,5 +102,13 @@ class AudioViewModel: ObservableObject {
     
     func updateVolume(_ value: Float) {
         volume = value
+    }
+    
+    func playPause() {
+        audioModel.playPause()
+    }
+    
+    func seek(to time: TimeInterval) {
+        audioModel.seek(to: time)
     }
 }
