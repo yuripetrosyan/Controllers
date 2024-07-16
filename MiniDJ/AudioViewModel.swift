@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import UIKit
 
 class AudioViewModel: ObservableObject {
     @Published var speed: Float = 1.0
@@ -11,6 +12,8 @@ class AudioViewModel: ObservableObject {
     @Published var currentTime: TimeInterval = 0
     @Published var duration: TimeInterval = 0
     @Published var isPlaying: Bool = false
+    @Published var backgroundColor: Color = .blue
+
     
     private let audioModel = AudioModel()
     private var cancellables = Set<AnyCancellable>()
@@ -78,6 +81,11 @@ class AudioViewModel: ObservableObject {
                 self?.coverArt = coverArt
                 self?.title = title
                 self?.duration = self?.audioModel.duration ?? 0
+                
+                
+                if let dominantColor = coverArt?.dominantColor() {
+                                 self?.backgroundColor = Color(dominantColor)
+                             }
             }
         }
     }
@@ -112,3 +120,6 @@ class AudioViewModel: ObservableObject {
         audioModel.seek(to: time)
     }
 }
+
+
+
