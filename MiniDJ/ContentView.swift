@@ -25,6 +25,8 @@ struct ContentView: View {
                     
                     ScrollView {
                         VStack {
+                            
+                            
                             CoverArtView(viewModel: viewModel, geometry: geometry, isCoverTapped: $isCoverTapped)
                             
                             PlaybackControlsView(viewModel: viewModel)
@@ -33,6 +35,7 @@ struct ContentView: View {
                             
                             KnobsView(viewModel: viewModel)
                         }
+                        
                         .offset(y: isCoverTapped ? 0 : 70)
                     }
                     .ignoresSafeArea()
@@ -43,7 +46,7 @@ struct ContentView: View {
                 })
                 .toolbarBackground(.hidden, for: .navigationBar)
                 .onAppear {
-                    //viewModel.loadMockMP3()
+                   // viewModel.loadMockMP3()
                 }
             }
         }
@@ -102,6 +105,8 @@ struct CoverArtView: View {
                         isCoverTapped.toggle()
                     }
                 }
+            } else{
+                Spacer(minLength: 240)
             }
             if let title = viewModel.title {
                 Text(title)

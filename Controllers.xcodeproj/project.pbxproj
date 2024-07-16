@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9232039E2C4565A7004D7DB1 /* SilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232039D2C4565A7004D7DB1 /* SilderView.swift */; };
 		925581122C3F42A800AA451D /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 925581112C3F42A800AA451D /* Pow */; };
-		925E120A2C46D5E200371961 /* LWYMMD.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 925E12092C46D5E200371961 /* LWYMMD.mp3 */; };
 		925E120C2C46D95000371961 /* DominantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E120B2C46D95000371961 /* DominantColor.swift */; };
 		925E120F2C46DE4900371961 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E120E2C46DE4900371961 /* TimeUtils.swift */; };
 		927DCA542C3764D3005E0FF6 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DCA532C3764D3005E0FF6 /* Logo.swift */; };
@@ -26,7 +25,6 @@
 
 /* Begin PBXFileReference section */
 		9232039D2C4565A7004D7DB1 /* SilderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SilderView.swift; sourceTree = "<group>"; };
-		925E12092C46D5E200371961 /* LWYMMD.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = LWYMMD.mp3; sourceTree = "<group>"; };
 		925E120B2C46D95000371961 /* DominantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominantColor.swift; sourceTree = "<group>"; };
 		925E120E2C46DE4900371961 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		927DCA532C3764D3005E0FF6 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				92D787202C1B58CC00166CB3 /* CHIHIRO.mp3 */,
-				925E12092C46D5E200371961 /* LWYMMD.mp3 */,
 			);
 			path = songs;
 			sourceTree = "<group>";
@@ -183,7 +180,6 @@
 			files = (
 				92D787212C1B58CC00166CB3 /* CHIHIRO.mp3 in Resources */,
 				92D787152C1B513200166CB3 /* Preview Assets.xcassets in Resources */,
-				925E120A2C46D5E200371961 /* LWYMMD.mp3 in Resources */,
 				92D787122C1B513200166CB3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

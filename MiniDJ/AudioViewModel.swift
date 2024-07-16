@@ -12,7 +12,7 @@ class AudioViewModel: ObservableObject {
     @Published var currentTime: TimeInterval = 0
     @Published var duration: TimeInterval = 0
     @Published var isPlaying: Bool = false
-    @Published var backgroundColor: Color = .blue
+    @Published var backgroundColor: Color = .green
 
     
     private let audioModel = AudioModel()
