@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 import UIKit
+import AVFoundation
 
 class AudioViewModel: ObservableObject {
     @Published var speed: Float = 1.0
@@ -14,6 +15,8 @@ class AudioViewModel: ObservableObject {
     @Published var isPlaying: Bool = false
     @Published var backgroundColor: Color = .green
 
+    
+    private var player: AVAudioPlayer?
     
     private let audioModel = AudioModel()
     private var cancellables = Set<AnyCancellable>()
@@ -117,8 +120,13 @@ class AudioViewModel: ObservableObject {
     }
     
     func seek(to time: TimeInterval) {
-        audioModel.seek(to: time)
-    }
+          guard let player = player else { return }
+          player.currentTime = time
+          if isPlaying {
+              player.play()
+          }
+      }
+    
 }
 
 

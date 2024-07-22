@@ -25,8 +25,6 @@ struct ContentView: View {
                     
                     ScrollView {
                         VStack {
-                            
-                            
                             CoverArtView(viewModel: viewModel, geometry: geometry, isCoverTapped: $isCoverTapped)
                             
                             PlaybackControlsView(viewModel: viewModel)
@@ -38,6 +36,7 @@ struct ContentView: View {
                         
                         .offset(y: isCoverTapped ? 0 : 70)
                     }
+                    .scrollIndicators(.hidden)
                     .ignoresSafeArea()
                 }
                 
@@ -46,7 +45,7 @@ struct ContentView: View {
                 })
                 .toolbarBackground(.hidden, for: .navigationBar)
                 .onAppear {
-                   /// viewModel.loadMockMP3()
+                    viewModel.loadMockMP3()
                 }
             }
         }
@@ -136,6 +135,7 @@ struct PlaybackControlsView: View {
             Slider(value: $viewModel.currentTime, in: 0...viewModel.duration, onEditingChanged: { editing in
                 if !editing {
                     viewModel.seek(to: viewModel.currentTime)
+                    print(viewModel.currentTime)
                 }
             })
             .tint(viewModel.backgroundColor)
