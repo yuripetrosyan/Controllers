@@ -116,16 +116,12 @@ class AudioViewModel: ObservableObject {
     }
     
     func playPause() {
-        audioModel.playPause()
+        audioModel.playPause()  // This will handle starting/stopping the timer based on play/pause state
     }
-    
+
     func seek(to time: TimeInterval) {
-          guard let player = player else { return }
-          player.currentTime = time
-          if isPlaying {
-              player.play()
-          }
-      }
+        audioModel.seek(to: time)  // This handles seeking and updating the current time as needed
+    }
     
 }
 

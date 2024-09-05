@@ -1,6 +1,15 @@
 {
-  "originHash" : "a70c3802333fa8bae85ad5fea9c004b7bdc37953c8c1d5b1883e545c3fad4296",
+  "originHash" : "6d3a0fd659fa16d6c0f8294e1d640b50b9feb685358730777b001e8a57193dca",
   "pins" : [
+    {
+      "identity" : "betterslider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukepistrol/BetterSlider.git",
+      "state" : {
+        "revision" : "7fdbae81176ef2190f83ea78d79182769e2ca144",
+        "version" : "0.1.1"
+      }
+    },
     {
       "identity" : "pow?tab=readme-ov-file",
       "kind" : "remoteSourceControl",

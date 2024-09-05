@@ -3,12 +3,14 @@
 //  MiniDJ
 //
 //  Created by Yuri Petrosyan on 13/06/2024.
-//import Foundation
+
+
+import Foundation
 import AVFoundation
 import UIKit
 import Combine
 
-class AudioModel: ObservableObject {
+class AudioModel: NSObject, ObservableObject, AVAudioPlayerDelegate {
     var audioPlayer: AVAudioPlayerNode?
     var audioFile: AVAudioFile?
     var audioEngine: AVAudioEngine?
@@ -20,8 +22,9 @@ class AudioModel: ObservableObject {
     @Published var isPlaying: Bool = false
     
     private var timer: Timer?
-    
-    init() {
+
+    override init() {
+        super.init()
         setupAudioSession()
         setupAudio()
     }
@@ -56,21 +59,24 @@ class AudioModel: ObservableObject {
         do {
             audioFile = try AVAudioFile(forReading: url)
             guard let audioEngine = audioEngine, let audioPlayer = audioPlayer, let audioFile = audioFile else { return }
-            
-            duration = TimeInterval(audioFile.length / AVAudioFramePosition(audioFile.processingFormat.sampleRate))
-            
+
+            // Set the duration based on the file's length
+            duration = TimeInterval(audioFile.length) / audioFile.processingFormat.sampleRate
+
+            // Schedule the file for playback
             audioPlayer.scheduleFile(audioFile, at: nil, completionHandler: nil)
+            
             try audioEngine.start()
             audioPlayer.play()
             isPlaying = true
-            
+
             startTimer()
-            
-            // Extract metadata
+
+            // Extract metadata (cover art, title, etc.)
             let asset = AVAsset(url: url)
             var coverArt: UIImage?
             var title: String?
-            
+
             for item in asset.commonMetadata {
                 if item.commonKey?.rawValue == "artwork", let data = item.dataValue {
                     coverArt = UIImage(data: data)
@@ -78,22 +84,22 @@ class AudioModel: ObservableObject {
                     title = stringValue
                 }
             }
-            
+
             completion(coverArt, title)
-            
         } catch {
             print("Error loading audio file: \(error.localizedDescription)")
             completion(nil, nil)
         }
     }
-    
+
     private func startTimer() {
+        stopTimer()  // Ensure no duplicate timers
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self, let nodeTime = self.audioPlayer?.lastRenderTime, let playerTime = self.audioPlayer?.playerTime(forNodeTime: nodeTime) else { return }
             self.currentTime = Double(playerTime.sampleTime) / playerTime.sampleRate
         }
     }
-    
+
     func stopTimer() {
         timer?.invalidate()
         timer = nil
@@ -105,25 +111,28 @@ class AudioModel: ObservableObject {
         reverbEffect?.wetDryMix = reverb
         audioEngine?.mainMixerNode.outputVolume = volume
     }
-    
+
     func playPause() {
         guard let audioPlayer = audioPlayer else { return }
-        
+
         if isPlaying {
             audioPlayer.pause()
             isPlaying = false
-            stopTimer()
+            stopTimer()  // Stop updating current time
         } else {
             audioPlayer.play()
             isPlaying = true
-            startTimer()
+            startTimer()  // Resume updating current time
         }
     }
-    
+
     func seek(to time: TimeInterval) {
-        guard let audioFile = audioFile else { return }
-        let sampleTime = AVAudioFramePosition(time * audioFile.processingFormat.sampleRate)
-        audioPlayer?.scheduleSegment(audioFile, startingFrame: sampleTime, frameCount: AVAudioFrameCount(duration * audioFile.processingFormat.sampleRate - Double(sampleTime)), at: nil)
+        guard let audioPlayer = audioPlayer, let audioFile = audioFile else { return }
+
+        audioPlayer.stop()  // Stop the player
+        audioPlayer.scheduleFile(audioFile, at: nil, completionHandler: nil)  // Reschedule file
+        audioPlayer.play(at: AVAudioTime(sampleTime: AVAudioFramePosition(time * audioFile.processingFormat.sampleRate), atRate: audioFile.processingFormat.sampleRate))  // Seek and play
         currentTime = time
+        startTimer()  // Resume timer after seeking
     }
 }

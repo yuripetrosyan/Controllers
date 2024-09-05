@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9227D4412C89F86A00C133B0 /* BetterSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 9227D4402C89F86A00C133B0 /* BetterSlider */; };
 		9232039E2C4565A7004D7DB1 /* SilderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9232039D2C4565A7004D7DB1 /* SilderView.swift */; };
 		925581122C3F42A800AA451D /* Pow in Frameworks */ = {isa = PBXBuildFile; productRef = 925581112C3F42A800AA451D /* Pow */; };
 		925E120C2C46D95000371961 /* DominantColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E120B2C46D95000371961 /* DominantColor.swift */; };
 		925E120F2C46DE4900371961 /* TimeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925E120E2C46DE4900371961 /* TimeUtils.swift */; };
 		927DCA542C3764D3005E0FF6 /* Logo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927DCA532C3764D3005E0FF6 /* Logo.swift */; };
+		92B82EE62C7295C2008D1C57 /* testView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B82EE52C7295C2008D1C57 /* testView.swift */; };
 		92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */; };
 		92D787102C1B512F00166CB3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D7870F2C1B512F00166CB3 /* ContentView.swift */; };
 		92D787122C1B513200166CB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D787112C1B513200166CB3 /* Assets.xcassets */; };
@@ -28,6 +30,7 @@
 		925E120B2C46D95000371961 /* DominantColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DominantColor.swift; sourceTree = "<group>"; };
 		925E120E2C46DE4900371961 /* TimeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUtils.swift; sourceTree = "<group>"; };
 		927DCA532C3764D3005E0FF6 /* Logo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logo.swift; sourceTree = "<group>"; };
+		92B82EE52C7295C2008D1C57 /* testView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testView.swift; sourceTree = "<group>"; };
 		92D7870A2C1B512F00166CB3 /* Controllers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Controllers.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDJApp.swift; sourceTree = "<group>"; };
 		92D7870F2C1B512F00166CB3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +50,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				925581122C3F42A800AA451D /* Pow in Frameworks */,
+				9227D4412C89F86A00C133B0 /* BetterSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +93,7 @@
 				92D7870D2C1B512F00166CB3 /* MiniDJApp.swift */,
 				92D7870F2C1B512F00166CB3 /* ContentView.swift */,
 				92D7871B2C1B570600166CB3 /* AudioModel.swift */,
+				92B82EE52C7295C2008D1C57 /* testView.swift */,
 				92D7871D2C1B575400166CB3 /* AudioViewModel.swift */,
 				92D787112C1B513200166CB3 /* Assets.xcassets */,
 				92D787132C1B513200166CB3 /* Preview Content */,
@@ -132,6 +137,7 @@
 			name = Controllers;
 			packageProductDependencies = (
 				925581112C3F42A800AA451D /* Pow */,
+				9227D4402C89F86A00C133B0 /* BetterSlider */,
 			);
 			productName = MiniDJ;
 			productReference = 92D7870A2C1B512F00166CB3 /* Controllers.app */;
@@ -163,6 +169,7 @@
 			mainGroup = 92D787012C1B512F00166CB3;
 			packageReferences = (
 				925581102C3F42A800AA451D /* XCRemoteSwiftPackageReference "Pow" */,
+				9227D43F2C89F86A00C133B0 /* XCRemoteSwiftPackageReference "BetterSlider" */,
 			);
 			productRefGroup = 92D7870B2C1B512F00166CB3 /* Products */;
 			projectDirPath = "";
@@ -195,6 +202,7 @@
 				927DCA542C3764D3005E0FF6 /* Logo.swift in Sources */,
 				9232039E2C4565A7004D7DB1 /* SilderView.swift in Sources */,
 				92D7871E2C1B575400166CB3 /* AudioViewModel.swift in Sources */,
+				92B82EE62C7295C2008D1C57 /* testView.swift in Sources */,
 				925E120F2C46DE4900371961 /* TimeUtils.swift in Sources */,
 				925E120C2C46D95000371961 /* DominantColor.swift in Sources */,
 				92D7870E2C1B512F00166CB3 /* MiniDJApp.swift in Sources */,
@@ -426,6 +434,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		9227D43F2C89F86A00C133B0 /* XCRemoteSwiftPackageReference "BetterSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukepistrol/BetterSlider.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.1;
+			};
+		};
 		925581102C3F42A800AA451D /* XCRemoteSwiftPackageReference "Pow" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/EmergeTools/Pow?tab=readme-ov-file";
@@ -437,6 +453,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		9227D4402C89F86A00C133B0 /* BetterSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9227D43F2C89F86A00C133B0 /* XCRemoteSwiftPackageReference "BetterSlider" */;
+			productName = BetterSlider;
+		};
 		925581112C3F42A800AA451D /* Pow */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 925581102C3F42A800AA451D /* XCRemoteSwiftPackageReference "Pow" */;

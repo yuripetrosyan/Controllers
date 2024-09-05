@@ -6,6 +6,7 @@
 //
 import SwiftUI
 import Pow
+import BetterSlider
 
 struct ContentView: View {
     
@@ -45,7 +46,7 @@ struct ContentView: View {
                 })
                 .toolbarBackground(.hidden, for: .navigationBar)
                 .onAppear {
-                    viewModel.loadMockMP3()
+                    //viewModel.loadMockMP3()
                 }
             }
         }
@@ -135,11 +136,16 @@ struct PlaybackControlsView: View {
             Slider(value: $viewModel.currentTime, in: 0...viewModel.duration, onEditingChanged: { editing in
                 if !editing {
                     viewModel.seek(to: viewModel.currentTime)
+                    
                     print(viewModel.currentTime)
                 }
             })
             .tint(viewModel.backgroundColor)
             .padding(.horizontal)
+            
+            
+            
+            
         }
         .padding(.horizontal)
     }
