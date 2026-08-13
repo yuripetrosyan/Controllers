@@ -1,3 +1,5 @@
+
+
 ![cnt](https://github.com/yuripetrosyan/Controllers/assets/73176415/f60607c2-7a1b-4df3-b6af-6c6f3988f478)
 
 ---
@@ -26,14 +28,14 @@ Controllers is a sleek and intuitive DJ controller app for iOS that allows you t
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/yourusername/MiniDJ.git
+git clone https://github.com/yuripetrosyan/Controllers.git
 ```
 
 2. Open the project in Xcode:
 
 ```sh
-cd MiniDJ
-open MiniDJ.xcodeproj
+cd Controllers
+open MiniDJ/MiniDJ.xcodeproj
 ```
 
 3. Build and run the project on your simulator or device.
@@ -77,4 +79,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Contact
 
 - **Author**: Yuri Petrosyan
-
